@@ -105,7 +105,7 @@ header h1 i {
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: var(--primary);
     color: var(--white);
     border: none;
@@ -116,6 +116,10 @@ header h1 i {
     text-decoration: none;
     transition: var(--transition);
     text-align: center;
+}
+
+.btn-phpinfo{
+    padding: 10px 20px;
 }
 
 .btn:hover {
@@ -147,18 +151,60 @@ header h1 i {
     background-color: #c0392b;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.check-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check-box label {
+    font-weight: 600;
+}
+
+.phpmyadmin-type {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.form-checkbox {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+}
+
+.form-group>label {
+    font-weight: 600;
 }
 
 .form-row {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 10px;
     gap: 15px;
-    margin-bottom: 15px;
 }
 
+/* form input field class */
 .form-control {
+    margin-top: 10px;
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
@@ -171,6 +217,26 @@ header h1 i {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.label-newname::after{
+      content: " *";
+      color: red;
+}
+
+.label-user::after{
+      content: " *";
+      color: red;
+}
+
+.label-password::after{
+      content: " *";
+      color: red;
+}
+
+.label-dbname::after{
+      content: " *";
+      color: red;
 }
 
 table {

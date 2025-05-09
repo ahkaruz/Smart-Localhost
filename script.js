@@ -19,6 +19,7 @@ function fetchMySQLStatus() {
 }
 document.addEventListener('DOMContentLoaded', () => {
     fetchMySQLStatus();
+    handleInputs();
 });
 
 //Xdebug
@@ -32,6 +33,72 @@ const compStatus = document.getElementById('composer');
 if (compStatus.innerText == 'Not installed.') {
     compStatus.style.color = 'red';
 }
+
+//checkbox and inputs
+function handleInputs() {
+    const config = document.getElementById('config');
+    const cookie = document.getElementById('cookie');
+    const createDb = document.getElementById('create-db');
+    const inputDbName = document.getElementById('input-dbname')
+    const inputUser = document.getElementById('input-user');
+    const inputPassword = document.getElementById('input-password');
+    const labelDbName = document.getElementById('label-dbname')
+    const labelUser = document.getElementById('label-user');
+    const labelPassword = document.getElementById('label-password');
+
+
+    config.addEventListener('change', function () {
+        if (this.checked) {
+            cookie.checked = false;
+            createDb.disabled = false;
+            inputUser.disabled = false;
+            inputPassword.disabled = false;
+            inputUser.required = true;
+            inputPassword.required = true;
+            labelUser.classList.add('label-user');
+            labelPassword.classList.add('label-password');
+        }
+        else if (!cookie.checked) {
+            this.checked = true;
+        }
+    })
+
+    cookie.addEventListener('change', function () {
+        if (this.checked) {
+            config.checked = false;
+            createDb.disabled = true;
+            createDb.checked = false;
+            inputUser.disabled = true;
+            inputPassword.disabled = true;
+            labelUser.classList.remove('label-user');
+            labelPassword.classList.remove('label-password');
+            inputDbName.required = false;
+            labelDbName.classList.remove('label-dbname');
+        }
+        else if (!cookie.checked) {
+            this.checked = true;
+        }
+    })
+    createDb.addEventListener('change', function () {
+        if (this.checked) {
+            inputDbName.required = true;
+            labelDbName.classList.add('label-dbname');
+        }
+        else if (!this.checked) {
+            inputDbName.required = false;
+            labelDbName.classList.remove('label-dbname');
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
 
 
 
